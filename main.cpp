@@ -656,26 +656,22 @@ void printTransactionHistory(std::string userID) { // [6] View history change
 			if (TransactionHistoryRecord.action == "Deposit money") {
 				std::cout << "Action: " << TransactionHistoryRecord.action << '\n';
 				std::cout << "Money Change: +" << TransactionHistoryRecord.balanceChange << '\n';
-			
 				std::cout << std::string(90, '-') << '\n';
 			}
 			else if (TransactionHistoryRecord.action == "Withdraw Money") {
 				std::cout << "Action: " << TransactionHistoryRecord.action << '\n';
 				std::cout << "Money Change: -" << TransactionHistoryRecord.balanceChange << '\n';
-
 				std::cout << std::string(90, '-') << '\n';
 			}
 			else if (TransactionHistoryRecord.action == "Modify money") {
 				std::cout << "Action: " << TransactionHistoryRecord.action << '\n';
 				std::cout << "Money modify to: " << TransactionHistoryRecord.balanceChange << '\n';
-				
 				std::cout << std::string(90, '-') << '\n';
 			}
 			else if (TransactionHistoryRecord.action == "Buy item") {
 				std::cout << "Action: " << TransactionHistoryRecord.action << '\n';
 				std::cout << "ItemID: " << TransactionHistoryRecord.itemBought << '\n';
 				std::cout << "Item price: " << TransactionHistoryRecord.balanceChange << '\n';
-				
 				std::cout << std::string(90, '-') << '\n';
 			}
 		}
