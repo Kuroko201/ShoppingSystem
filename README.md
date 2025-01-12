@@ -3,7 +3,7 @@ this is a practice
 here is how it function
 
 *** Shopping System ***
-------------------------
+
 [1]. Load starting data
 [2]. View CustomerRecord
 [3]. Add/drop account
@@ -11,7 +11,7 @@ here is how it function
 [5]. Buy items
 [6]. View history change
 [7]. Exit
-------------------------
+
 
 First, user must [1] Load starting data before doing any action;
 After [1], user may [2]. View CustomerRecord to check the customerID for further function
