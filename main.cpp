@@ -656,26 +656,26 @@ void printTransactionHistory(std::string userID) { // [6] View history change
 			if (TransactionHistoryRecord.action == "Deposit money") {
 				std::cout << "Action: " << TransactionHistoryRecord.action << '\n';
 				std::cout << "Money Change: +" << TransactionHistoryRecord.balanceChange << '\n';
-				MoneyChange += TransactionHistoryRecord.balanceChange;
+			
 				std::cout << std::string(90, '-') << '\n';
 			}
 			else if (TransactionHistoryRecord.action == "Withdraw Money") {
 				std::cout << "Action: " << TransactionHistoryRecord.action << '\n';
 				std::cout << "Money Change: -" << TransactionHistoryRecord.balanceChange << '\n';
-				MoneyChange -= TransactionHistoryRecord.balanceChange;
+
 				std::cout << std::string(90, '-') << '\n';
 			}
 			else if (TransactionHistoryRecord.action == "Modify money") {
 				std::cout << "Action: " << TransactionHistoryRecord.action << '\n';
 				std::cout << "Money modify to: " << TransactionHistoryRecord.balanceChange << '\n';
-				MoneyChange = TransactionHistoryRecord.balanceChange;
+				
 				std::cout << std::string(90, '-') << '\n';
 			}
 			else if (TransactionHistoryRecord.action == "Buy item") {
 				std::cout << "Action: " << TransactionHistoryRecord.action << '\n';
 				std::cout << "ItemID: " << TransactionHistoryRecord.itemBought << '\n';
 				std::cout << "Item price: " << TransactionHistoryRecord.balanceChange << '\n';
-				MoneyChange -= TransactionHistoryRecord.balanceChange;
+				
 				std::cout << std::string(90, '-') << '\n';
 			}
 		}
@@ -690,17 +690,23 @@ void printTransactionHistory(std::string userID) { // [6] View history change
 		}
 		for (auto& CustomerRecord : customerRecords) {
 			if (CustomerRecord.customerID == userID) {
+				MoneyChange = CustomerRecord.balance;
 				std::cout << "Balance now: " << CustomerRecord.balance << '\n';
 			}
 		}
-		if (MoneyChange > 0) {
-			std::cout << "Money change: +" << MoneyChange << '\n';
+		if (orginalBalance < MoneyChange) {
+			std::cout << "Money change: +" << MoneyChange - orginalBalance << '\n';
 		}
-		else if(MoneyChange < 0) {
-			std::cout << "Money change: " << MoneyChange << '\n';
+		else if (orginalBalance > MoneyChange) {
+			if (MoneyChange > 0) {
+				std::cout << "Money change: -" << orginalBalance - MoneyChange << '\n';
+			}
+			else {
+				std::cout << "Money change: -" << orginalBalance + MoneyChange << '\n';
+			}
 		}
 		else {
-			std::cout << "Money change: " << MoneyChange << '\n';
+			std::cout << "Money change: " << orginalBalance - MoneyChange << '\n';
 		}
 	}
 	if (anyRecord == false) {
