@@ -67,21 +67,21 @@ void storeCustomerRecord() { // initialize data
 	customerRecords.push_back({ "Ivy2023", 'G', 12340 });
 }
 void storeItemRecord() { // initialize data
-	itemRecords.push_back({ "A01", "LG Internet TV", 3900});
-	itemRecords.push_back({ "A02", "Pioneer Hifi Set", 2400});
-	itemRecords.push_back({ "A03", "Sony DVD Player", 400});
-	itemRecords.push_back({ "B01", "Healthy Air Fryer", 1500});
-	itemRecords.push_back({ "B02", "Tefal Microwave Oven", 480});
-	itemRecords.push_back({ "B03", "Famous Coffee Maker", 1800});
-	itemRecords.push_back({ "B04", "Smart Rice Cooker", 600});
-	itemRecords.push_back({ "B05", "TechCook Toaster Oven", 450});
+	itemRecords.push_back({ "A01", "LG Internet TV", 3900 });
+	itemRecords.push_back({ "A02", "Pioneer Hifi Set", 2400 });
+	itemRecords.push_back({ "A03", "Sony DVD Player", 400 });
+	itemRecords.push_back({ "B01", "Healthy Air Fryer", 1500 });
+	itemRecords.push_back({ "B02", "Tefal Microwave Oven", 480 });
+	itemRecords.push_back({ "B03", "Famous Coffee Maker", 1800 });
+	itemRecords.push_back({ "B04", "Smart Rice Cooker", 600 });
+	itemRecords.push_back({ "B05", "TechCook Toaster Oven", 450 });
 	itemRecords.push_back({ "C01", "Wellcome $50 Coupon", 50 });
-	itemRecords.push_back({ "C02", "Mannings $50 Coupon", 50});
-	itemRecords.push_back({ "C03", "Carol Restaurant $100 Coupon", 100});
-	itemRecords.push_back({ "C04", "Shell $200 Coupon", 200});
-	itemRecords.push_back({ "D01", "Clever Headset", 350});
-	itemRecords.push_back({ "D02", "HP Optic Mouse", 250});
-	itemRecords.push_back({ "D03", "Stylish Bluetooth Speaker", 800});
+	itemRecords.push_back({ "C02", "Mannings $50 Coupon", 50 });
+	itemRecords.push_back({ "C03", "Carol Restaurant $100 Coupon", 100 });
+	itemRecords.push_back({ "C04", "Shell $200 Coupon", 200 });
+	itemRecords.push_back({ "D01", "Clever Headset", 350 });
+	itemRecords.push_back({ "D02", "HP Optic Mouse", 250 });
+	itemRecords.push_back({ "D03", "Stylish Bluetooth Speaker", 800 });
 }
 
 void storeInitCustomerRecord() { // initialize data
@@ -96,7 +96,7 @@ void storeInitCustomerRecord() { // initialize data
 	initCustomerRecords.push_back({ "Rubychow", 28000 });
 	initCustomerRecords.push_back({ "Ivy2023", 12340 });
 }
-void errorInput() { 
+void errorInput() {
 	std::cin.clear();
 	std::cin.ignore(10000, '\n');
 }
@@ -119,11 +119,11 @@ void printCustomerRecord() { // [2] Customer Record
 	std::cout << std::setw(35) << "Points Balance" << '\n';
 	std::cout << std::string(90, '=') << '\n';
 	std::cout << std::left;
-		for (auto& customerRecord : customerRecords) {
-			std::cout << std::setw(31) << customerRecord.customerID;
-			std::cout << std::setw(25) << customerRecord.customerRank;
-			std::cout << customerRecord.balance << '\n';
-		}
+	for (auto& customerRecord : customerRecords) {
+		std::cout << std::setw(31) << customerRecord.customerID;
+		std::cout << std::setw(25) << customerRecord.customerRank;
+		std::cout << customerRecord.balance << '\n';
+	}
 	std::cout << std::string(90, '=') << '\n';
 
 }
@@ -160,7 +160,7 @@ std::string enterUserName() {
 	std::cin >> userID;
 	return userID;
 }
-bool findCustomer(std::string userID) { 
+bool findCustomer(std::string userID) {
 	for (auto& customerRecord : customerRecords) {
 		if (customerRecord.customerID == userID) {
 			std::cout << "userID FOUND" << '\n';
@@ -195,9 +195,9 @@ void deleteCustomer(std::string userID) { // [3] add/drop customer
 		}
 		Sleep(1000);
 		customerRecords.erase(customerRecords.begin() + checkUserIDPosition);
-		initCustomerRecords.erase({initCustomerRecords.begin() + checkUserIDPosition});
+		initCustomerRecords.erase({ initCustomerRecords.begin() + checkUserIDPosition });
 	}
-	else if (areYouSure =='N'){
+	else if (areYouSure == 'N') {
 		std::cout << "Action Cancelled" << '\n';
 		Sleep(1000);
 		std::cout << "Returning to the menu";
@@ -206,10 +206,10 @@ void deleteCustomer(std::string userID) { // [3] add/drop customer
 }
 
 bool leapYear(int year) {   // [3] add/drop customer
-	if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)){
+	if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) {
 		return true;
 	}
-	else{
+	else {
 		return false;
 	}
 }
@@ -237,11 +237,11 @@ bool checkDate(int day, int month, int year) { // [3] add/drop customer
 		return valid;
 	}
 	if (month < 1 || month > 12) {
-	//	std::cout << "monthBug"; Sleep(3000);
+		//	std::cout << "monthBug"; Sleep(3000);
 		return valid;
 	}
 	if (year < 1970) {
-	//	std::cout << "yearBug"; Sleep(3000);
+		//	std::cout << "yearBug"; Sleep(3000);
 		return valid;
 	}
 	if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && day <= 31) {
@@ -278,7 +278,7 @@ char getRank(int day, int month, int year) { // [3] add/drop customer
 
 	double daysDifference = difftime(presentTimestamp, currentTimestamp) / (24 * 60 * 60);
 
-	if (static_cast<int>(daysDifference) >= 365 ) {
+	if (static_cast<int>(daysDifference) >= 365) {
 		getRank = 'G';
 	}
 	else if (static_cast<int>(daysDifference) >= 180) {
@@ -299,9 +299,7 @@ char convertStringToInt(std::string birthOfDate) { // [3] add/drop customer
 	char rank = ' ';
 	bool validDate = false;
 	std::cout << "Enter your register day(DD/MM/YYYY):";
-	std::cin >> birthOfDate;
-	while (birthOfDate.length() != 10 || birthOfDate.at(2) != '/' || birthOfDate.at(5) != '/'  || validDate != true) {
-		std::cout << "invalid date or Wrong Format, again(DD / MM / YYYY) :";
+	while (birthOfDate.length() != 10 || birthOfDate.at(2) != '/' || birthOfDate.at(5) != '/' || validDate != true) {
 		std::cin >> birthOfDate;
 		if (birthOfDate.length() != 10) { // prevent array crash  array[10] = {'1', null, null, null} or array[15] but we only have array[10]
 			birthOfDate = "99/99/9999"; // set array to [10]
@@ -313,6 +311,9 @@ char convertStringToInt(std::string birthOfDate) { // [3] add/drop customer
 		month = static_cast<int>((temp[3] - '0') * 10 + temp[4] - '0'); // same fomular as Day
 		year = static_cast<int>((temp[6] - '0') * 1000 + (temp[7] - '0') * 100 + (temp[8] - '0') * 10 + temp[9] - '0');
 		validDate = checkDate(day, month, year);
+		if (validDate == false) {
+			std::cout << "Wrong date format or invalid date(DD/MM/YYYY):";
+		}
 	}
 	std::cout << "Success! " << day << "/" << month << "/" << year << '\n';
 	rank = getRank(day, month, year);
@@ -495,7 +496,7 @@ bool areYouSure2() { // no system("CLS")
 }
 void buyItem(std::string userID, int option, char category) { // [5] buy item
 	std::string itemID = " ";
-	float discount = 1; 
+	float discount = 1;
 	int priceAfterDiscount = 0; // use for print the record
 	int itemPrice = 0;  // store the price of the vector
 	int customerBalnce = 0; // store the balance of the vector
@@ -564,7 +565,7 @@ void buyItem(std::string userID, int option, char category) { // [5] buy item
 			break;
 		}
 		for (auto& itemRecord : itemRecords) {
-			if ((itemID[0]  == category) && itemID == itemRecord.itemID) {
+			if ((itemID[0] == category) && itemID == itemRecord.itemID) {
 				itemPrice = itemRecord.itemPrice;
 				itemFound = true;
 				break;
@@ -611,7 +612,7 @@ void giftCategoryAction(std::string userID) { // [5] buy item
 		errorInput();
 		switch (option) {
 		case 1:
-			category = 'A';	
+			category = 'A';
 			break;
 		case 2:
 			category = 'B';
@@ -619,7 +620,7 @@ void giftCategoryAction(std::string userID) { // [5] buy item
 		case 3:
 			category = 'C';
 			break;
-		case 4: 
+		case 4:
 			category = 'D';
 			break;
 		case 5: // Back to the shopping system menu (main menu)
@@ -670,7 +671,7 @@ void printTransactionHistory(std::string userID) { // [6] View history change
 	int orginalBalance = 0;
 	if (anyRecord == true) {
 		for (auto& InitCustomerRecord : initCustomerRecords) {
-			if (InitCustomerRecord.customerID == userID){
+			if (InitCustomerRecord.customerID == userID) {
 				orginalBalance = InitCustomerRecord.balance;
 				std::cout << "Original balance: " << InitCustomerRecord.balance << '\n';
 			}
@@ -733,96 +734,99 @@ int main() {
 	int option = 0;
 	bool isDataLoad = false;
 	bool left = false;
-		while (isDataLoad == false) {
-			system("CLS");
-			menu();
-			std::cout << "Please load the data first[1]:";
+	while (isDataLoad == false) {
+		system("CLS");
+		menu();
+		std::cout << "Please load the data first[1]:";
+		std::cin >> option;
+		errorInput();
+		if (option == 1) {
+			isDataLoad = true;
+			option = 0;
+			loadData();
+			storeItemRecord();
+			storeCustomerRecord();
+			storeInitCustomerRecord();
+		}
+		else if (option == 7) {
+			if (areYouSure() == true) {
+				exit();
+				break;
+			}
+		}
+	}
+
+	while (true && isDataLoad == true) {
+		menu();
+		if (option == 1) {
+			std::cout << "Data already loaded, input other option(2-7):";
 			std::cin >> option;
 			errorInput();
-			if (option == 1) {
-				isDataLoad = true;
-				option = 0;
-				loadData();
-				storeItemRecord();
-				storeCustomerRecord();
-				storeInitCustomerRecord();
-			}
-			else if (option == 7) {
-				if (areYouSure() == true) {
-					exit();
-					break;
-				}
-			}
 		}
-		
-		while (true && isDataLoad == true) {
-			menu();
-			if (option == 1) {
-				std::cout << "Data already loaded, input other option(2-7):";
-				std::cin >> option;
-				errorInput();
-			}
-			else {
-				std::cout << "Please input your option(2-7):";
-				std::cin >> option;
-				errorInput();
-			}
+		else {
+			std::cout << "Please input your option(2-7):";
+			std::cin >> option;
+			errorInput();
+		}
 
-			switch (option) {
-			case 2:
+		switch (option) {
+		case 2:
+			system("CLS");
+			printItemRecord();
+			printCustomerRecord();
+			break;
+		case 3:
+			if (areYouSure() == true) {
+				std::string userID = editCustomer();
+				if (findCustomer(userID) == true) {
+					deleteCustomer(userID);
+				}
+				else {
+					addCustomer(userID);
+				}
 				system("CLS");
-				printItemRecord();
-				printCustomerRecord();
-				break;
-			case 3:
-				if (areYouSure() == true) {
-					std::string userID = editCustomer();
-					if (findCustomer(userID) == true) {
-						deleteCustomer(userID);
-					}
-					else {
-						addCustomer(userID);
-					}
-					system("CLS");
-				}
-				break;
-			case 4:
-				if (areYouSure() == true) {
-					std::string userID = enterUserName();
-					if (findCustomer(userID) == true) {
-						editBalanceAction(userID);
-					}
-					system("CLS");
-				}
-				break;
-			case 5:
-				if (areYouSure() == true) {
-					std::string userID = enterUserName();
-					if (findCustomer(userID) == true) {
-					giftCategoryAction(userID);
-					}
-					system("CLS");
-				}
-				break;
-			case 6:
-				if (areYouSure() == true) {
-					std::string userID = enterUserName();
-					if (findCustomer(userID) == true) {
-						system("CLS");
-						printTransactionHistory(userID);
-					}
-					else {
-						system("CLS");
-					}
-				}
-				break;
-			case 7: 
-				if (areYouSure() == true) {
-					exit();
-					return 0;
-				}			
-				break;
 			}
+			break;
+		case 4:
+			if (areYouSure() == true) {
+				std::string userID = enterUserName();
+				if (findCustomer(userID) == true) {
+					editBalanceAction(userID);
+				}
+				system("CLS");
+			}
+			break;
+		case 5:
+			if (areYouSure() == true) {
+				std::string userID = enterUserName();
+				if (findCustomer(userID) == true) {
+					giftCategoryAction(userID);
+				}
+				system("CLS");
+			}
+			break;
+		case 6:
+			if (areYouSure() == true) {
+				std::string userID = enterUserName();
+				if (findCustomer(userID) == true) {
+					system("CLS");
+					printTransactionHistory(userID);
+				}
+				else {
+					system("CLS");
+				}
+			}
+			break;
+		case 7:
+			if (areYouSure() == true) {
+				exit();
+				return 0;
+			}
+			break;
+		default:
+			system("CLS");
+			break;
 		}
-		return 0;
 	}
+	return 0;
+}
