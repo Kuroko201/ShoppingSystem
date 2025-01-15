@@ -298,14 +298,25 @@ char convertStringToInt(std::string birthOfDate) { // [3] add/drop customer
 	int day, month, year;
 	char rank = ' ';
 	bool validDate = false;
+	bool isDigit = false;
 	std::cout << "Enter your register day(DD/MM/YYYY):";
-	while (birthOfDate.length() != 10 || birthOfDate.at(2) != '/' || birthOfDate.at(5) != '/' || validDate != true) {
+	while (birthOfDate.length() != 10 || birthOfDate.at(2) != '/' || birthOfDate.at(5) != '/' || validDate != true || isDigit != true) {
 		std::cin >> birthOfDate;
 		if (birthOfDate.length() != 10) { // prevent array crash  array[10] = {'1', null, null, null} or array[15] but we only have array[10]
 			birthOfDate = "99/99/9999"; // set array to [10]
 		}
 		for (int i = 0; i < 10; i++) { // convert string to char arry first
 			temp[i] = birthOfDate.at(i);
+			if (isdigit(temp[i])) {
+				isDigit = true;
+			}
+			else if (temp[2] || temp[5]) {
+				isDigit = true;
+			}
+			else {
+				isDigit = false;
+				break;
+			}
 		}
 		day = static_cast<int>((temp[0] - '0') * 10 + temp[1] - '0'); // temp[0] temp[1] is DD  when - '0' it will show the correct int of char the fomular of day = if temp[0] = 2 and temp[1] = 6; when 2*10 = 20;  20 + temp[1] = 20 + 6 = 26
 		month = static_cast<int>((temp[3] - '0') * 10 + temp[4] - '0'); // same fomular as Day
