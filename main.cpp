@@ -307,23 +307,28 @@ char convertStringToInt(std::string birthOfDate) { // [3] add/drop customer
 		}
 		for (int i = 0; i < 10; i++) { // convert string to char arry first
 			temp[i] = birthOfDate.at(i);
-			if (isdigit(temp[i])) {
-				isDigit = true;
-			}
-			else if (temp[2] || temp[5]) {
-				isDigit = true;
-			}
-			else {
-				isDigit = false;
-				break;
+			if (i != 2 && i != 5) {
+				if (isdigit(temp[i])) {
+					isDigit = true;
+				}
+				else {
+					isDigit = false;
+					break;
+				}
 			}
 		}
 		day = static_cast<int>((temp[0] - '0') * 10 + temp[1] - '0'); // temp[0] temp[1] is DD  when - '0' it will show the correct int of char the fomular of day = if temp[0] = 2 and temp[1] = 6; when 2*10 = 20;  20 + temp[1] = 20 + 6 = 26
 		month = static_cast<int>((temp[3] - '0') * 10 + temp[4] - '0'); // same fomular as Day
 		year = static_cast<int>((temp[6] - '0') * 1000 + (temp[7] - '0') * 100 + (temp[8] - '0') * 10 + temp[9] - '0');
 		validDate = checkDate(day, month, year);
-		if (validDate == false) {
+		if (validDate == false && isDigit == true) {
 			std::cout << "Wrong date format or invalid date(DD/MM/YYYY):";
+		}
+		else if (isDigit == false) {
+			std::cout << "Please input integer:";
+		}
+		else if (validDate == false && isDigit == false) {
+			std::cout << "Not integer and Wrong date format or invalid date(DD/MM/YYYY):";
 		}
 	}
 	std::cout << "Success! " << day << "/" << month << "/" << year << '\n';
